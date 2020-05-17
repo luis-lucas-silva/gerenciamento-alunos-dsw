@@ -1,0 +1,26 @@
+:root {
+    --mdc-theme-secondary: #6200ee !important;
+}
+
+.app-fab--absolute {
+    position: fixed !important;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+@media(min-width: 1024px) {
+    .app-fab--absolute {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+}
+
+.mdc-top-app-bar--fixed-adjust {
+    width: 100%;
+}
+
+.mdc-data-table {
+    margin-top: 2vh;
+    width: 50%;
+    margin-left: 25%;
+}

@@ -1,0 +1,39 @@
+:root {
+    --mdc-theme-secondary: #6200ee !important;
+}
+.app-fab--absolute {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+@media(min-width: 1024px) {
+    .app-fab--absolute {
+    bottom: 1.5rem;
+    right: 1.5rem;
+}
+}
+
+.mdc-top-app-bar--fixed-adjust {
+    width: 100%;
+}
+
+.mdc-data-table{
+    margin-top: 2vh;
+    width: 80%;
+    margin-left: 10%;
+}
+
+#filters-disciplinas {
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    width: 445px;
+    margin-left: 30%;
+}
+
+#filter-alunos {
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    width: 445px;
+    margin-left: 30%;
+}

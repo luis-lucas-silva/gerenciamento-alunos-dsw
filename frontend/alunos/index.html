@@ -1,0 +1,190 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="./static/styles.css">
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <title>Alunos</title>
+</head>
+
+<body onload="listarAlunos()">
+  <aside class="mdc-drawer mdc-drawer--dismissible">
+    <div class="mdc-drawer__content">
+      <div class="mdc-list">
+        <a class="mdc-list-item" href="../relatorio/index.html" aria-current="page">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">view_list</i>
+          <span class="mdc-list-item__text">RELATÓRIO</span>
+        </a>
+        <a class="mdc-list-item mdc-list-item--activated" href="../alunos/index.html">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">account_circle</i>
+          <span class="mdc-list-item__text">ALUNOS</span>
+        </a>
+        <a class="mdc-list-item" href="../disciplinas/index.html">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">book</i>
+          <span class="mdc-list-item__text">DISCIPLINAS</span>
+        </a>
+        <a class="mdc-list-item" href="./lancarnotas/index.html">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+          <span class="mdc-list-item__text">LANÇAR NOTAS</span>
+        </a>
+        <a class="mdc-list-item" href="./alterarnotas/index.html">
+          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">edit</i>
+          <span class="mdc-list-item__text">ALTERAR NOTAS</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="mdc-drawer-app-content">
+    <header class="mdc-top-app-bar app-bar" id="app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+          <span class="mdc-top-app-bar__title">ALUNOS</span>
+        </section>
+      </div>
+    </header>
+
+    <main class="main-content" id="main-content">
+      <div class="mdc-top-app-bar--fixed-adjust">
+        <div class="mdc-data-table">
+          <table class="mdc-data-table__table" aria-label="Dessert calories">
+            <thead>
+              <tr class="mdc-data-table__header-row">
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">CÓDIGO</th>
+                <th class="mdc-data-table__header-cell mdc-data-table__header-cell" role="columnheader" scope="col">NOME
+                </th>
+                <th class="mdc-data-table__header-cell mdc-data-table__header-cell" role="columnheader" scope="col">
+                  E-MAIL</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">TELEFONE</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">CEP</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">RUA</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">NÚMERO</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">BAIRRO</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">CIDADE</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">ESTADO</th>
+                <th class="mdc-data-table__header-cell" role="columnheader" scope="col">DISCIPLINA</th>
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content" id="aluno-tbody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="mdc-dialog">
+        <div class="mdc-dialog__container">
+          <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content">
+            <div class="mdc-dialog__content" id="my-dialog-content">
+              <form id="form-aluno" name="form-aluno" action="#">
+                <div id="first-block-form">
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-text-field__ripple"></span>
+                    <input class="mdc-text-field__input" type="text" id="nomealuno-input" required
+                      aria-labelledby="nomealuno-input-lb">
+                    <span class="mdc-floating-label" id="nomealuno-input-lb">Nome</span>
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-text-field__ripple"></span>
+                    <input class="mdc-text-field__input" type="email" id="emailaluno-input" required value=""
+                      aria-labelledby="emailaluno-input-lb">
+                    <span class="mdc-floating-label" id="emailaluno-input-lb">E-mail</span>
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-text-field__ripple"></span>
+                    <input class="mdc-text-field__input" type="text" pattern="[0-9]{10}" placeholder="Ex: 1139902022"
+                      id="telaluno-input" required aria-labelledby="telaluno-input-lb">
+                    <span class="mdc-floating-label" id="telaluno-input-lb">Telefone</span>
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                  <br>
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-text-field__ripple"></span>
+                    <input class="mdc-text-field__input" id="cep-input" pattern="[0-9]{8}" placeholder="Ex: 02920153"
+                      type="text" required aria-labelledby="cep-input-lb">
+                    <span class="mdc-floating-label" id="cep-input-lb">CEP</span>
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                  <button id="cep-button" class="mdc-button">
+                    <div class="mdc-button__ripple"></div>
+                    <span class="mdc-button__label">Buscar CEP</span>
+                  </button>
+                </div>
+                <br>
+                <div id="second-block-form">
+
+                </div>
+                <div class="mdc-select mdc-select--required">
+                  <span class="mdc-select__ripple"></span>
+                  <div class="mdc-select__anchor" aria-required="true">
+                    <input type="text" disabled readonly class="mdc-select__selected-text">
+                    <i class="mdc-select__dropdown-icon"></i>
+                    <span class="mdc-floating-label">Disciplinas</span>
+                    <span class="mdc-line-ripple"></span>
+                  </div>
+
+                  <div class="mdc-select__menu mdc-menu mdc-menu-surface demo-width-class">
+                    <ul id="select-disciplina" class="mdc-list">
+                      <li class="mdc-list-item mdc-list-item--selected" data-value="" aria-selected="true"></li>
+                      <li class="mdc-list-item" data-value="grains">
+                        <span class="mdc-list-item__text">
+                          Bread, Cereal, Rice, and Pasta
+                        </span>
+                      </li>
+                      <li class="mdc-list-item" data-value="vegetables">
+                        <span class="mdc-list-item__text">
+                          Vegetables
+                        </span>
+                      </li>
+                      <li class="mdc-list-item" data-value="fruit">
+                        <span class="mdc-list-item__text">
+                          Fruit
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div id="divHiddenInput" style="display: none;">
+                  <label class="mdc-text-field mdc-text-field--filled">
+                    <span class="mdc-text-field__ripple"></span>
+                    <input class="mdc-text-field__input" type="text" value="" id="iddisciplina-input"
+                      aria-labelledby="iddisciplina-input-lb">
+                    <span class="mdc-floating-label" id="iddisciplina-input-lb">Código Disciplina</span>
+                    <span class="mdc-line-ripple"></span>
+                  </label>
+                </div>
+
+            </div>
+            <div class="mdc-dialog__actions">
+              <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Cancelar</span>
+              </button>
+              <button type="submit" form="form-aluno" id="cadastrar-aluno" class="mdc-button mdc-dialog__button"
+                data-mdc-dialog-action="">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">CADASTRAR</span>
+              </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+      </div>
+      <button class="mdc-fab app-fab--absolute" onclick="openDialog()" aria-label="Create">
+        <span class="mdc-fab__icon material-icons">add</span>
+      </button>
+    </main>
+  </div>
+
+  <script src="./static/scripts.js"></script>
+</body>
+
+</html>
